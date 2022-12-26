@@ -14,7 +14,12 @@ export default function Login({navigation}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const loginHandler = async()=>{
+  const [error ,setError] = useState(false)
+
+  
+
+
+  const testLoginHandler = async()=>{
     const resp = await fetch("https://staging-api.tracknerd.io/v1/auth/login", {
       method: 'POST',
       headers: {
@@ -61,12 +66,16 @@ export default function Login({navigation}) {
             onChangeText={(password) => setPassword(password)}
           /> 
         </View> 
+        <View>
+            {error && <Text>Enter Correct Details</Text>}
+        </View>
         <TouchableOpacity>
           <Text style={styles.forgot_button}>Forgot Password?</Text> 
         </TouchableOpacity> 
-        <TouchableOpacity style={styles.loginBtn} onPress={loginHandler}>
-          <Text style={styles.loginText}>LOGIN</Text> 
+        <TouchableOpacity style={styles.loginBtn} onPress={testLoginHandler}>
+          <Text style={styles.loginText}>Test LOGIN</Text> 
         </TouchableOpacity> 
+  
       </View> 
   );
 

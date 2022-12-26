@@ -35,8 +35,7 @@ export const Vehicle = ({navigation}) => {
             }
             fetchVehicle()
             setLoading(false)
-            console.log('working')
-            console.log(data)
+            
         }
         } catch(e) {
             setLoading(false)
